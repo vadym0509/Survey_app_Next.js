@@ -30,7 +30,7 @@ const ResultsList = () => {
             2xl:grid-cols-6
             gap-8
         ">
-                {ResultData.map((result: any) => {
+                {JSON.parse(localStorage.getItem("resultdata") as string).map((result: any) => {
                     return (
                         <div key={result.formId}> 
                             <DefaultCard 

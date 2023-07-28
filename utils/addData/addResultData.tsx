@@ -1,6 +1,6 @@
-export default async function addResultData(formId: number) {
+export default function addResultData(formId: number) {
     // Implement SyncData function
-    let currentResultData = await JSON.parse(localStorage.getItem("resultdata") as string);
+    let currentResultData = JSON.parse(localStorage.getItem("resultdata") as string);
     const newResultData = {
         resultId : currentResultData[currentResultData.length - 1].resultId + 1,
         formId: formId,
@@ -13,4 +13,5 @@ export default async function addResultData(formId: number) {
 
     localStorage.setItem("resultdata", JSON.stringify(updatedResultData));
     console.log("The Result data has been updated", JSON.parse(localStorage.getItem("resultdata") as string))
+    return newResultData.resultId;
 }
