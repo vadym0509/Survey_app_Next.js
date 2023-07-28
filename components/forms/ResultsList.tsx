@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import DefaultCard from "../DesignSystem/cards/DefaultCard";
 
 const ResultData = [
@@ -18,6 +19,12 @@ const ResultData = [
 
 
 const ResultsList = () => {
+    const [resultData, setResultData] = useState<any[]>();
+
+    useEffect(() => {
+        setResultData(JSON.parse(localStorage.getItem("resultdata") as string))
+    }, [])
+
     return (
         <div className="
             pt-4
@@ -30,7 +37,7 @@ const ResultsList = () => {
             2xl:grid-cols-6
             gap-8
         ">
-                {JSON.parse(localStorage.getItem("resultdata") as string).map((result: any) => {
+                {resultData?.map((result: any) => {
                     return (
                         <div key={result.formId}> 
                             <DefaultCard 

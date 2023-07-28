@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import DefaultCard from "../DesignSystem/cards/DefaultCard";
 
 const FormData = [ 
@@ -57,6 +58,11 @@ const FormData = [
 
 
 const FormList = () => {
+    const [formdata, setFormData] = useState<any[]>();
+
+    useEffect(() => {
+        setFormData(JSON.parse(localStorage.getItem("formdata") as string))
+    }, [])
 
     return (
         <div className="
@@ -70,7 +76,7 @@ const FormList = () => {
             2xl:grid-cols-6
             gap-8
         ">
-                {JSON.parse(localStorage.getItem("formdata") as string).map((form: any) => {
+                {formdata?.map((form: any) => {
                     return (
                         <div key={form.formId}>
                             <DefaultCard 
