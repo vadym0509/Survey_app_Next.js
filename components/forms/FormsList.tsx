@@ -1,5 +1,6 @@
-import DefaultCard from "../DesignSystem/cards/DefaultCard";
+'use client'
 
+import DefaultCard from "../DesignSystem/cards/DefaultCard";
 
 const FormData = [ 
         
@@ -55,7 +56,7 @@ const FormData = [
 ];
 
 
-const FormList = async () => {
+const FormList = () => {
 
     return (
         <div className="
@@ -69,7 +70,7 @@ const FormList = async () => {
             2xl:grid-cols-6
             gap-8
         ">
-                {FormData.map((form: any) => {
+                {JSON.parse(localStorage.getItem("formdata") as string).map((form: any) => {
                     return (
                         <div key={form.formId}>
                             <DefaultCard 
