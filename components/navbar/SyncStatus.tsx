@@ -9,6 +9,7 @@ const SyncStatus = () => {
   const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {
+    if(navigator.onLine) SyncData();
     const handleOnline = () => {
       setIsOnline(true);
       SyncData();
