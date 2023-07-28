@@ -17,7 +17,7 @@ const ResultData = [
 ]
 
 
-const ResultsList = async () => {
+const ResultsList = () => {
     return (
         <div className="
             pt-4
