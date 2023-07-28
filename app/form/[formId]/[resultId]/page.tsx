@@ -9,7 +9,7 @@ export default function Page( {params}: {
     return (
         <div>
             <p>The id of this page is {params.resultId}</p>
-            <Form />
+            <Form formId={params.formId} resultId={params.resultId} />
         </div>
     )
   }
