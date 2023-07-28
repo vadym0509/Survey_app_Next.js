@@ -23,7 +23,7 @@ export default function RootLayout({
       <body>
           <div className="flex flex-col gap-y-10">
             <HamburgerNavbar
-              SiteName = 'Logo text'
+              SiteName = 'Coding challenge'
             />
             <Container>
                 {children}
