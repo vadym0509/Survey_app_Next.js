@@ -1,4 +1,5 @@
 // Based on 'Centered with Eyebrow'
+import { useRouter } from "next/navigation"
 
 interface CardProps {
     Title: string 
@@ -9,9 +10,14 @@ interface CardProps {
 const DefaultCard: React.FC<CardProps> = ({
     Title, Description, Link}
         ) => {
+    const router = useRouter();
+
+    const handleOnclickCard = () => {
+        router.push(Link)
+    }
 
     return(
-        <a href={Link} className="
+        <div onClick={handleOnclickCard} className="
             block 
             max-w-sm 
             p-6 
@@ -42,7 +48,7 @@ const DefaultCard: React.FC<CardProps> = ({
             ">
                 {Description}
             </p>
-        </a>
+        </div>
     )
         }
 
