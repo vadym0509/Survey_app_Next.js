@@ -6,7 +6,8 @@ export default function addResultData(formId: number) {
         formId: formId,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        result: {}
+        result: {},
+        completed: false
     }
 
     const updatedResultData = [...currentResultData, newResultData];

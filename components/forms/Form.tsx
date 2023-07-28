@@ -48,6 +48,7 @@ export const Form = ({formId, resultId}: FormProps) => {
     // Implement solution to save results
     let resultData = JSON.parse(localStorage.getItem("resultdata") as string);
     resultData.find((item: any) => item.resultId == resultId).result = results;
+    resultData.find((item: any) => item.resultId == resultId).completed = true;
     localStorage.setItem("resultdata", JSON.stringify(resultData));
     console.log("The result data has been updated", resultData);
     router.push(`/form/${formId}`);

@@ -17,12 +17,17 @@ const ResultData = [
     }
 ]
 
+type ResultsListProps = {
+    formId: number;
+}
 
-const ResultsList = () => {
+const ResultsList = ({formId}: ResultsListProps) => {
     const [resultData, setResultData] = useState<any[]>();
 
     useEffect(() => {
-        setResultData(JSON.parse(localStorage.getItem("resultdata") as string))
+        let currentResults = JSON.parse(localStorage.getItem("resultdata") as string);
+        currentResults = currentResults.filter((item: any) => item.formId == formId);
+        setResultData(currentResults);
     }, [])
 
     return (
@@ -44,6 +49,7 @@ const ResultsList = () => {
                                 Title={'This is result '+result.resultId}
                                 Description={result.createdAt}
                                 Link={`/form/${result.formId}/${result.resultId}`}
+                                isCompleted={result.completed}
                             />
                         </div>
                     )   
